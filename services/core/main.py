@@ -18,6 +18,29 @@ class User(BaseModel):
     email: str
     contact_info: str
     user_type: UserType
+    user_points: int
+
+
+class Route(BaseModel):
+    route_id: str
+    route_date_start: str
+    route_date_end: str
+    route_start_time: str
+    start_point: str
+    end_point: str
+    route_passengers: #TODO junction_table // Bartek
+    route_driver: User
+    route_points_id: Points
+    route_status: str
+    route_n_o_passengers: int  #ilość pasazerow // Bartek
+    route_description: str
+
+
+class Points(BaseModel):
+    points_id: str
+    route_id: Route
+    points_amount: int  #TODO potrzebny mnoznik punktow // Bartek
+    created_at: str  #TODO tutaj potrzebna funkcja time czy cos lepszego // Bartek
 
 
 @app.get("/")
