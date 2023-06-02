@@ -1,0 +1,12 @@
+{
+  "name": "hack4change-ekoludki",
+  "version": "1.0.0",
+  "description": "We are building an carpooling app @ `Hack4Change Hackathon`. Idea of app is to reduce cars on the streets by connecting people and encourage them to drive together (eg. to work!).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
