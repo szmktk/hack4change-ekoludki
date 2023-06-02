@@ -37,7 +37,7 @@ class Route(BaseModel):
 
 
 class Points(BaseModel):
-    points_id: str
+    points_id: strString
     route_id: Route
     points_amount: int  #TODO potrzebny mnoznik punktow // Bartek
     created_at: str  #TODO tutaj potrzebna funkcja time czy cos lepszego // Bartek
