@@ -15,6 +15,7 @@ class User(Base):
     user_type = Column(String)
     user_points = Column(Integer)
 
+
 # class Route(Base):
 #     __tablename__ = "route"
 #
@@ -25,16 +26,20 @@ class User(Base):
 #     start_point = Column(String)
 #     end_point = Column(String)
 #     route_passengers = Column(String) #TODO junction_table // Bartek
-#     route_driver = Column(String) #TODO from user id //Pawel
 #     route_points_id = Column(String) #TODO musimy to jakoś liczyć Bartek
 #     route_status = Column(Boolean)
 #     route_n_o_passengers = Column(Integer) #ilość pasazerow // Bartek
 #     route_description = Column(String)
 #
+#     route_driver = relationship("User", back_populates="user_id")
+#
+#
+#
 # class Points(Base):
-#     __tablename__ = "route"
+#     __tablename__ = "points"
 #
 #     points_id = Column(Integer, primary_key=True, index=True)
-#     route_id = Column(Integer) #TODO zaciągnąć z routea
 #     points_amount = Column(String) #TODO potrzebny mnoznik punktow // Bartek
 #     created_at = Column(String) #TODO tutaj potrzebna funkcja time czy cos lepszego // Bartek
+#
+#     route_id = relationship("Route", back_populates="route_id")

@@ -8,5 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "license.txt",
+  "dependencies": {
+  }
 }
