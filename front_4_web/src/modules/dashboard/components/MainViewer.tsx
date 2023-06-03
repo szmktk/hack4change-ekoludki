@@ -1,16 +1,14 @@
-export const MainViewer = (props?:any) => {
-
+import GlobalStyles from "../../common/styles/GlobalStyles"
+import { NavigationTop } from "../../common/components/Navigation/Top/NavigationTop"
+import { NavigationBottom } from "../../common/components/Navigation/Bottom/NavigationBottom"
+export const MainViewer = () => {
     return (
-        <div>
-            <h1>This is MainViewer</h1>
-        </div>
+        <>
+            <GlobalStyles />
+            <div>
+                <NavigationTop />
+                <NavigationBottom />
+            </div>
+        </>
     )
-    //below example only:
-    /*return (
-        <IndexStyled>
-            <Navbar></Navbar>
-            <Content nameProviderData={props.nameProviderData}></Content>
-            <Footer></Footer>
-        </IndexStyled>
-    )*/
 }

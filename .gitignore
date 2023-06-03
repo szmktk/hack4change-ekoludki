@@ -318,6 +318,7 @@ test/
 
 # End of https://www.toptal.com/developers/gitignore/api/vue,pycharm,visualstudiocode,python
 .idea/
+*.db
 
 # all from all ignored :) with **
 **/node_modules
