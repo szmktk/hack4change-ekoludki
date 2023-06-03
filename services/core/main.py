@@ -1,48 +1,50 @@
-from enum import Enum
+from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy.orm import Session
 
-from fastapi import FastAPI
-from pydantic import BaseModel
+
+from . import models
+from .database import engine, SessionLocal
+from .repository import create_user, get_user_by_email, get_user
+from .schemas import UserView, UserCreate
 
 app = FastAPI()
 
-
-class UserType(Enum):
-    DRIVER = "DRIVER"
-    PASSENGER = "PASSENGER"
+models.Base.metadata.create_all(bind=engine)
 
 
-class User(BaseModel):
-    user_id: str
-    username: str
-    password: str
-    email: str
-    contact_info: str
-    user_type: UserType
-    user_points: int
-
-
-class Route(BaseModel):
-    route_id: str
-    route_date_start: str
-    route_date_end: str
-    route_start_time: str
-    start_point: str
-    end_point: str
-    route_passengers: #TODO junction_table // Bartek
-    route_driver: User
-    route_points_id: Points
-    route_status: str
-    route_n_o_passengers: int  #ilość pasazerow // Bartek
-    route_description: str
-
-
-class Points(BaseModel):
-    points_id: strString
-    route_id: Route
-    points_amount: int  #TODO potrzebny mnoznik punktow // Bartek
-    created_at: str  #TODO tutaj potrzebna funkcja time czy cos lepszego // Bartek
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 @app.get("/")
 async def root():
     return {"message": "it_works!"}
+
+
+@app.post("/users", response_model=UserView)
+async def create_user_post(user: UserCreate, db: Session = Depends(get_db)):
+    db_user = get_user_by_email(db, email=user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+
+    user = create_user(db=db, user=user)
+    view_user: UserView = UserView(
+        user_id=user.user_id,
+        username=user.username,
+        email=user.email,
+        contact_info= user.contact_info,
+        user_points=user.user_points,
+    )
+    return view_user
+
+
+@app.get("/users/{user_id}", response_model=UserView)
+def read_user(user_id: int, db: Session = Depends(get_db)):
+    db_user = get_user(db, user_id=user_id)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return db_user
