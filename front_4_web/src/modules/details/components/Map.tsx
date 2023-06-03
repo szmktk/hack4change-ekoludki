@@ -1,25 +1,8 @@
-import { TileLayer, MapContainer, useMap, Marker, Popup, MarkerProps } from 'react-leaflet'
-
-
-//export type MapEntry<K, V> = Map<K, V> | [K, V][]
-//
-//// Public interface
-//export interface UtilityMaps<K, V> {
-//  set: (key: K, value: V) => void
-//  setAll: (entryData: MapEntry<K, V>) => void
-//  remove: (key: K) => void
-//  reset: Map<K, V>['clear']
-//}
-
-//const initialValues: MapEntry<string, string> = [['key', '🆕']]
-//markerProps: MarkerProps
+import { TileLayer, MapContainer, Marker, Popup} from 'react-leaflet'
 export const Map = (): JSX.Element=>{
-    
-    //const [map, actions] = useMap<string, string>(initialValues)
-    
     return(
         <MapContainer
-            className='mapa'
+            style={{ height: '50vh' }}
             center={[51.505, -0.09]} 
             zoom={13} 
             scrollWheelZoom={false}>
