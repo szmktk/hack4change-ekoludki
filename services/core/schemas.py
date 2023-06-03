@@ -17,7 +17,6 @@ class UserView(UserBase):
     email: str
     user_id: Optional[int]
     username: Optional[str]
-    password: Optional[str]
     contact_info: Optional[str]
     # user_type: UserType
     user_points: Optional[int]
