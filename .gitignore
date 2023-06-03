@@ -318,3 +318,8 @@ test/
 
 # End of https://www.toptal.com/developers/gitignore/api/vue,pycharm,visualstudiocode,python
 .idea/
+
+# all from all ignored :) with **
+**/node_modules
+#**/package-lock.json
+.DS_Store
