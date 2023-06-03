@@ -39,19 +39,19 @@ class User(BaseModel):
     user_points: Optional[int]
 
 
-# class Route(BaseModel):
-#     route_id: str
-#     route_date_start: str
-#     route_date_end: str
-#     route_start_time: str
-#     start_point: str
-#     end_point: str
-#     # route_passengers:  # TODO junction_table // Bartek
-#     route_driver: User
-#     # route_points_id: Points
-#     route_status: str
-#     route_n_o_passengers: int  # ilość pasazerow // Bartek
-#     route_description: str
+class Route(BaseModel):
+    route_id: Optional[str]
+    route_date_start: Optional[str]
+    route_date_end: Optional[str]
+    route_start_time: Optional[str]
+    start_point: Optional[str]
+    end_point: Optional[str]
+    # route_passengers:  # TODO junction_table // Bartek
+    route_driver: Optional[User]
+    # route_points_id: Points
+    route_status: Optional[str]
+    route_n_o_passengers: Optional[int]  # ilość pasazerow // Bartek
+    route_description: Optional[str]
 #
 #
 # class Points(BaseModel):

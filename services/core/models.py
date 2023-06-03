@@ -16,22 +16,22 @@ class User(Base):
     user_points = Column(Integer)
 
 
-# class Route(Base):
-#     __tablename__ = "route"
-#
-#     route_id = Column(Integer, primary_key=True, index=True)
-#     route_date_start = Column(String)
-#     route_date_end = Column(String)
-#     route_start_time = Column(String)
-#     start_point = Column(String)
-#     end_point = Column(String)
-#     route_passengers = Column(String) #TODO junction_table // Bartek
-#     route_points_id = Column(String) #TODO musimy to jakoś liczyć Bartek
-#     route_status = Column(Boolean)
-#     route_n_o_passengers = Column(Integer) #ilość pasazerow // Bartek
-#     route_description = Column(String)
-#
-#     route_driver = relationship("User", back_populates="user_id")
+class Route(Base):
+    __tablename__ = "route"
+
+    route_id = Column(Integer, primary_key=True, index=True)
+    route_date_start = Column(String)
+    route_date_end = Column(String)
+    route_start_time = Column(String)
+    start_point = Column(String)
+    end_point = Column(String)
+    route_passengers = Column(String) #TODO junction_table // Bartek
+    route_points_id = Column(String) #TODO musimy to jakoś liczyć Bartek
+    route_status = Column(Boolean)
+    route_n_o_passengers = Column(Integer) #ilość pasazerow // Bartek
+    route_description = Column(String)
+
+    route_driver = relationship("User", back_populates="user_id")
 #
 #
 #

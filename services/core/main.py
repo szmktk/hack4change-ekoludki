@@ -24,7 +24,7 @@ def get_db():
 async def root():
     return {"message": "it_works!"}
 
-
+# User methods
 @app.post("/users", response_model=UserView)
 async def create_user_post(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_email(db, email=user.email)
@@ -48,3 +48,5 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
+
+# Route method
