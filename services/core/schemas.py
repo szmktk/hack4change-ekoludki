@@ -15,7 +15,7 @@ class UserBase(BaseModel):
 
 class UserView(UserBase):
     email: str
-    user_id: Optional[str]
+    user_id: Optional[int]
     username: Optional[str]
     password: Optional[str]
     contact_info: Optional[str]
@@ -31,7 +31,7 @@ class UserCreate(UserView):
 
 
 class User(BaseModel):
-    user_id: Optional[str]
+    user_id: Optional[int]
     username: Optional[str]
     # password: str
     email: Optional[str]
