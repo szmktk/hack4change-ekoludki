@@ -1,14 +1,14 @@
 import GlobalStyles from "../../common/styles/GlobalStyles"
-import { NavigationTop } from "../../common/components/Navigation/Top/NavigationTop"
-import { NavigationBottom } from "../../common/components/Navigation/Bottom/NavigationBottom"
-import { Map } from "../../details/components/Map"
+import { NavigationTop } from "./NavigationTop"
+import { NavigationBottom } from "./NavigationBottom"
+import { Content } from "./Content"
 export const MainViewer = () => {
     return (
         <>
             <GlobalStyles />
             <div>
                 <NavigationTop />
-                <Map />
+                    <Content/>
                 <NavigationBottom />
             </div>
         </>
