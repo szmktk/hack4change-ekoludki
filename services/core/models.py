@@ -30,8 +30,8 @@ class Route(Base):
     route_status = Column(Boolean)
     route_n_o_passengers = Column(Integer) #ilość pasazerow // Bartek
     route_description = Column(String)
-
-    route_driver = relationship("User", back_populates="user_id")
+    route_driver_id = Column(Integer) #TODO next create relation to user
+    # route_driver_id = relationship("User", back_populates="user_id")
 #
 #
 #
