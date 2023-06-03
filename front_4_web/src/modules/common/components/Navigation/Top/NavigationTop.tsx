@@ -1,5 +1,7 @@
-import { StyledNavigationTop, StyledDiv } from "./NavigationTop.styled";
+import { StyledNavigationTop, StyledDiv, NavigationProfile } from "./NavigationTop.styled";
 import Brand from '../../../../../assets/images/Brand.svg';
+import { NotificationFilled } from '@ant-design/icons';
+import { Button } from "antd";
 
 export const NavigationTop = () => {
   return(
@@ -8,8 +10,8 @@ export const NavigationTop = () => {
         <img src={Brand} alt="Brand" />
       </StyledDiv>
       <StyledDiv>
-        <p>Notif</p>
-        <p>Profile</p>
+        <Button type="ghost" shape="circle" icon={<NotificationFilled />} />
+        <NavigationProfile />
       </StyledDiv>
     </StyledNavigationTop>
   );
