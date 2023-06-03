@@ -8,7 +8,9 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    font-family: sans-serif;
+    font-family: 'Epilogue', sans-serif;
+    max-width: 100%;
+    overflow: hidden;
   }
 `
 

@@ -1,7 +1,12 @@
-export const Content = (): JSX.Element=>{
+import GlobalStyles from "../../common/styles/GlobalStyles"
+
+export const Content = (): JSX.Element => {
     return(
-      <div>
-        
-      </div>
+      <>
+      <GlobalStyles />
+        <section>
+          <p>XD</p>
+        </section>
+      </>
     )
 }
