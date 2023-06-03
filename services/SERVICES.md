@@ -21,6 +21,5 @@ poetry install
 
 to run `fastapi` go to `core` directory and run a development server:
 ```
-cd core
-uvicorn main:app --reload
+uvicorn core.main:app --reload
 ```
