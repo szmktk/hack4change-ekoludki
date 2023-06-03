@@ -9,11 +9,11 @@ class UserType(Enum):
     PASSENGER = "PASSENGER"
 
 
-class UserBase(BaseModel):
-    email: str
+# class UserBase(BaseModel):
+#     email: str
 
 
-class UserView(UserBase):
+class UserView(BaseModel):
     email: str
     user_id: Optional[int]
     username: Optional[str]
@@ -28,18 +28,7 @@ class UserView(UserBase):
 class UserCreate(UserView):
     password: str
 
-
-class User(BaseModel):
-    user_id: Optional[int]
-    username: Optional[str]
-    # password: str
-    email: Optional[str]
-    contact_info: Optional[str]
-    # user_type: UserType
-    user_points: Optional[int]
-
-
-class Route(BaseModel):
+class RouteView(BaseModel):
     route_id: Optional[str]
     route_date_start: Optional[str]
     route_date_end: Optional[str]
@@ -47,11 +36,42 @@ class Route(BaseModel):
     start_point: Optional[str]
     end_point: Optional[str]
     # route_passengers:  # TODO junction_table // Bartek
-    route_driver: Optional[User]
+    route_driver_id: Optional[int]
     # route_points_id: Points
-    route_status: Optional[str]
+    # route_status: Optional[str]
     route_n_o_passengers: Optional[int]  # ilość pasazerow // Bartek
     route_description: Optional[str]
+
+    class Config:
+        orm_mode = True
+
+class RouteCreate(RouteView):
+    route_id: Optional[str]
+    route_date_start: Optional[str]
+    route_date_end: Optional[str]
+    route_start_time: Optional[str]
+    start_point: Optional[str]
+    end_point: Optional[str]
+    # route_passengers:  # TODO junction_table // Bartek
+    route_driver_id: Optional[int]
+    # route_points_id: Points
+    # route_status: Optional[str]
+    route_n_o_passengers: Optional[int]  # ilość pasazerow // Bartek
+    route_description: Optional[str]
+
+# class Route(BaseModel):
+#     route_id: Optional[str]
+#     route_date_start: Optional[str]
+#     route_date_end: Optional[str]
+#     route_start_time: Optional[str]
+#     start_point: Optional[str]
+#     end_point: Optional[str]
+#     # route_passengers:  # TODO junction_table // Bartek
+#     route_driver: Optional[User]
+#     # route_points_id: Points
+#     route_status: Optional[str]
+#     route_n_o_passengers: Optional[int]  # ilość pasazerow // Bartek
+#     route_description: Optional[str]
 #
 #
 # class Points(BaseModel):
