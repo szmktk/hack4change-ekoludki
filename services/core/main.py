@@ -24,7 +24,7 @@ def get_db():
 async def root():
     return {"message": "it_works!"}
 
-# User methods
+
 @app.post("/users", response_model=UserView)
 async def create_user_post(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_email(db, email=user.email)
@@ -32,13 +32,7 @@ async def create_user_post(user: UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Email already registered")
 
     user = create_user(db=db, user=user)
-    view_user: UserView = UserView(
-        user_id=user.user_id,
-        username=user.username,
-        email=user.email,
-        contact_info= user.contact_info,
-        user_points=user.user_points,
-    )
+    view_user: UserView = UserView(**user.__dict__)
     return view_user
 
 
@@ -48,5 +42,3 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
-
-# Route method
