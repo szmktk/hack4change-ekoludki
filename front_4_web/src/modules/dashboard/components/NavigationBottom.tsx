@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { StyledNavigationBottom } from './NavigationBottom.styled' 
+import { StyledNavigationBottom } from './styles/NavigationBottom.style' 
 export const NavigationBottom = () => {
   return(
     <StyledNavigationBottom>

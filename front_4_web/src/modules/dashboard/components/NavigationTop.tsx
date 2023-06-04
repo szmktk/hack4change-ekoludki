@@ -1,4 +1,4 @@
-import { StyledNavigationTop, StyledDiv, NavigationProfile } from "./NavigationTop.styled";
+import { StyledNavigationTop, StyledDiv, NavigationProfile } from "./styles/NavigationTop.style";
 import Brand from '../../../assets/images/Brand.svg';
 import { NotificationFilled } from '@ant-design/icons';
 import { Button } from "antd";

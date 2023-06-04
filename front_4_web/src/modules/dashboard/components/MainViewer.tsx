@@ -1,4 +1,4 @@
-import GlobalStyles from "../../common/styles/GlobalStyles"
+import GlobalStyles from "./styles/Global.style"
 import { NavigationTop } from "./NavigationTop"
 import { NavigationBottom } from "./NavigationBottom"
 import { Content } from "./Content"
