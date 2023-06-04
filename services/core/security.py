@@ -1,6 +1,6 @@
-# https://fastapi-users.github.io/fastapi-users/11.0/configuration/databases/sqlalchemy/
-#TODO https://fastapi-users.github.io/fastapi-users/11.0/configuration/authentication/backend/
-# https://fastapi-users.github.io/fastapi-users/11.0/configuration/user-manager/
+# https://fastapi-users.github.io/fastapi-users/11.0/
+#TODO IMPORTANT! https://fastapi-users.github.io/fastapi-users/11.0/configuration/schemas/
+
 import uuid
 from typing import AsyncGenerator, Optional
 
